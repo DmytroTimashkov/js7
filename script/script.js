@@ -2,17 +2,18 @@ function cloneObj(obj){
     if(typeof obj !== "object"){
         return "this not object";
     }
-    else if (obj == null){
+    if (obj === null){
         return "null isn`t object";
     }
-    else if(Object.keys(obj).length <= 0){
+    if(Object.keys(obj).length <= 0){
         return "empty object";
     }
     else{
-        window.objClone = {}
+        let objClone = {}
         for(let key in obj){
             objClone[key] = obj[key]
         }
+        return typeof objClone == "object" ? objClone : null ;
     }
 }
 
@@ -31,8 +32,5 @@ console.log(cloneObj(test));
 console.log(cloneObj(test2));
 
 
-console.log(objClone);
+console.log(cloneObj(user));
 
-objClone.name = "John"
-console.log(objClone);
-console.log(user);
